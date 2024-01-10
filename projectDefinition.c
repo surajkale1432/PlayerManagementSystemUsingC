@@ -84,6 +84,7 @@ void removePlayerByJerseyNo(Players *player, int i)
     {
         player[i] = player[i + 1];
     }
+    printf("\nPlayer Removed Successfully");
     totalPlayers--;
 }
 void updatePlayerByJerseyNo(Players *player, int i)
