@@ -16,6 +16,12 @@ void printPlayersInfo(Players *player)
         printf("\nNo. Of Wickets taken  = %d", player[i].noOfWickets);
     }
 }
+Players* resizeStructArray(Players *player,int totalSize)
+{
+    printf("\nEnter New SIZE = ");
+    scanf("%d",&size);
+    player=(Players*)realloc(player,(size+totalSize)*sizeof(Players));
+}
 void addPlayerInfo(Players *player)
 {
     int i;
@@ -60,7 +66,7 @@ int searchPlayerByName(Players *player, char *searchPlayerName)
     int i, foundIndex = -1;
     for (i = 0; i < totalPlayers; i++)
     {
-        if (strcmp(player[i].playerName, searchPlayerName) == 0)
+        if (strcasecmp(player[i].playerName, searchPlayerName) == 0)
         {
             return i;
         }
