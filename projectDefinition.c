@@ -68,6 +68,7 @@ int searchPlayerByName(Players *player, char *searchPlayerName)
     {
         if (strcasecmp(player[i].playerName, searchPlayerName) == 0)
         {
+            foundIndex++;
             return i;
         }
     }

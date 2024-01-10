@@ -29,7 +29,7 @@ void main()
                 return;
             }
         }
-        printf("\n%d", sizeof(Players));
+        // printf("\n%d", sizeof(Players));
         printf("\n*******************************************************************\n");
         printf("\nWelcome To Player Management System.\nPlease Select Your Choice.\n");
         printf("1. Add Player to Team.\n2. Display All Players Info.\n3. Search Player by Jersey No\n4. Search Player by Name ");
