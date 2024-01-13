@@ -21,9 +21,4 @@ void DummyPlayerData(Players *player)
     player[2].noOfRuns=3565;
     player[2].noOfWickets=92;
     totalPlayers++;
-
-    
-
 }
-
-

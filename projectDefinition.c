@@ -160,6 +160,24 @@ void sortPlayerBy(Players *player, int ch)
                     player[j]=temp;
                 }
             }
+            else if(ch==4 && order==1)
+            {
+                if(player[i].noOfMatchPlayed>player[j].noOfMatchPlayed)
+                {
+                    Players temp=player[i];
+                    player[i]=player[j];
+                    player[j]=temp;
+                }
+            }
+            else if(ch==4 && order==2)
+            {
+                if(player[i].noOfMatchPlayed<player[j].noOfMatchPlayed)
+                {
+                    Players temp=player[i];
+                    player[i]=player[j];
+                    player[j]=temp;
+                }
+            }
         }
     }
 }
@@ -233,7 +251,7 @@ void doOperation(Players *player, int *ch)
         break;
 
     case 8:
-        printf("\n\n1. Sort By Runs\n2. Sort By Wickets\n3. Sort By Matches\nChoice = ");
+        printf("\n\n1. Sort By Jersey No\n2. Sort By Wickets\n3. Sort By Runs\n4. Sort By Matches\nChoice = ");
         scanf("%d", &*ch);
         sortPlayerBy(player, *ch);
         break;
