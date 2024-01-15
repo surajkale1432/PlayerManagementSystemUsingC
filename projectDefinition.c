@@ -16,20 +16,30 @@ void printPlayersInfo(Players *player)
         printf("\nNo. Of Wickets taken  = %d", player[i].noOfWickets);
     }
 }
-Players* resizeStructArray(Players *player,int totalSize)
+Players *resizeStructArray(Players *player, int totalSize)
 {
     printf("\nEnter New SIZE = ");
-    scanf("%d",&size);
-    player=(Players*)realloc(player,(size+totalSize)*sizeof(Players));
+    scanf("%d", &size);
+    player = (Players *)realloc(player, (size + totalSize) * sizeof(Players));
 }
 void addPlayerInfo(Players *player)
 {
-    int i;
+    int i, j;
+
     for (i = 0; i < 1; i++)
     {
         printf("\nEnter Players information");
         printf("\nJersey No             = ");
         scanf("%d", &player[totalPlayers].jerseyNo);
+        for (int j = 0; j < totalPlayers; j++)
+        {
+            if (player[totalPlayers].jerseyNo == player[j].jerseyNo)
+            {
+                printf("\n%d JerseyNo already present use another", player[totalPlayers].jerseyNo);
+                //
+                return;
+            }
+        }
         printf("\nPlayer Name           = ");
         fflush(stdin);
         gets(player[totalPlayers].playerName);
@@ -106,76 +116,76 @@ void sortPlayerBy(Players *player, int ch)
     {
         for (j = i + 1; j < totalPlayers; j++)
         {
-            if(ch==1 && order==1)
+            if (ch == 1 && order == 1)
             {
-                if(player[i].jerseyNo>player[j].jerseyNo)
+                if (player[i].jerseyNo > player[j].jerseyNo)
                 {
-                    Players temp=player[i];
-                    player[i]=player[j];
-                    player[j]=temp;
+                    Players temp = player[i];
+                    player[i] = player[j];
+                    player[j] = temp;
                 }
             }
-            else if(ch==1 && order==2)
+            else if (ch == 1 && order == 2)
             {
-                if(player[i].jerseyNo<player[j].jerseyNo)
+                if (player[i].jerseyNo < player[j].jerseyNo)
                 {
-                    Players temp=player[i];
-                    player[i]=player[j];
-                    player[j]=temp;
+                    Players temp = player[i];
+                    player[i] = player[j];
+                    player[j] = temp;
                 }
             }
-            else if(ch==2 && order==1)
+            else if (ch == 2 && order == 1)
             {
-                if(player[i].noOfWickets>player[j].noOfWickets)
+                if (player[i].noOfWickets > player[j].noOfWickets)
                 {
-                    Players temp=player[i];
-                    player[i]=player[j];
-                    player[j]=temp;
+                    Players temp = player[i];
+                    player[i] = player[j];
+                    player[j] = temp;
                 }
             }
-            else if(ch==2 && order==2)
+            else if (ch == 2 && order == 2)
             {
-                if(player[i].noOfWickets<player[j].noOfWickets)
+                if (player[i].noOfWickets < player[j].noOfWickets)
                 {
-                    Players temp=player[i];
-                    player[i]=player[j];
-                    player[j]=temp;
+                    Players temp = player[i];
+                    player[i] = player[j];
+                    player[j] = temp;
                 }
             }
-            else if(ch==3 && order==1)
+            else if (ch == 3 && order == 1)
             {
-                if(player[i].noOfRuns>player[j].noOfRuns)
+                if (player[i].noOfRuns > player[j].noOfRuns)
                 {
-                    Players temp=player[i];
-                    player[i]=player[j];
-                    player[j]=temp;
+                    Players temp = player[i];
+                    player[i] = player[j];
+                    player[j] = temp;
                 }
             }
-            else if(ch==3 && order==2)
+            else if (ch == 3 && order == 2)
             {
-                if(player[i].noOfRuns<player[j].noOfRuns)
+                if (player[i].noOfRuns < player[j].noOfRuns)
                 {
-                    Players temp=player[i];
-                    player[i]=player[j];
-                    player[j]=temp;
+                    Players temp = player[i];
+                    player[i] = player[j];
+                    player[j] = temp;
                 }
             }
-            else if(ch==4 && order==1)
+            else if (ch == 4 && order == 1)
             {
-                if(player[i].noOfMatchPlayed>player[j].noOfMatchPlayed)
+                if (player[i].noOfMatchPlayed > player[j].noOfMatchPlayed)
                 {
-                    Players temp=player[i];
-                    player[i]=player[j];
-                    player[j]=temp;
+                    Players temp = player[i];
+                    player[i] = player[j];
+                    player[j] = temp;
                 }
             }
-            else if(ch==4 && order==2)
+            else if (ch == 4 && order == 2)
             {
-                if(player[i].noOfMatchPlayed<player[j].noOfMatchPlayed)
+                if (player[i].noOfMatchPlayed < player[j].noOfMatchPlayed)
                 {
-                    Players temp=player[i];
-                    player[i]=player[j];
-                    player[j]=temp;
+                    Players temp = player[i];
+                    player[i] = player[j];
+                    player[j] = temp;
                 }
             }
         }
