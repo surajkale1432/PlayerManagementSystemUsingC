@@ -6,7 +6,7 @@
 void main()
 {
     Players *player;
-    player = (Players*)malloc(sizeof(Players) * size);
+    player = (Players*)malloc(sizeof(Players) * size);   //3000 3024 3048
     char choice[20];
     int ch;
     char *str;
@@ -14,21 +14,6 @@ void main()
     _label_loop1:
     do
     {
-        char chch;
-        if (totalPlayers == size)
-        {
-            printf("\n Your Storage is full Do You want to increase Storage\nY/N\n");
-            fflush(stdin);
-            scanf("%c", &chch);
-            if (chch == 'y' || chch == 'Y')
-            {
-                player = resizeStructArray(player, totalPlayers);
-            }
-            else if (chch == 'n' || chch == 'N')
-            {
-                return;
-            }
-        }
         // printf("\n%d", sizeof(Players));
         printf("\n*******************************************************************\n");
         printf("\nWelcome To Player Management System.\nPlease Select Your Choice.\n");
@@ -48,4 +33,5 @@ void main()
             doOperation(player, &ch);
         }
     } while (ch > 0 && ch < 11);
+    free(player);
 }

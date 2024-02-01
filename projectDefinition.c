@@ -21,11 +21,26 @@ Players *resizeStructArray(Players *player, int totalSize)
     printf("\nEnter New SIZE = ");
     scanf("%d", &size);
     player = (Players *)realloc(player, (size + totalSize) * sizeof(Players));
+    return player;
 }
-void addPlayerInfo(Players *player)
+void addPlayerInfo(Players *player)//3000
 {
     int i, j;
-
+    char chch;
+    if (totalPlayers == size)
+    {
+        printf("\n Your Storage is full Do You want to increase Storage\nY/N\n");
+        fflush(stdin);
+        scanf("%c", &chch);
+        if (chch == 'y' || chch == 'Y')
+        {
+            player = resizeStructArray(player, totalPlayers);
+        }
+        else if (chch == 'n' || chch == 'N')
+        {
+            return;
+        }
+    }
     for (i = 0; i < 1; i++)
     {
         printf("\nEnter Players information");
@@ -200,7 +215,7 @@ void printPlayerInfoByIndex(Players *player, int i)
     printf("\nNo. Of Wickets taken  = %d", player[i].noOfWickets);
 }
 
-void doOperation(Players *player, int *ch)
+void doOperation(Players *player, int *ch)    //2000   3000 3004    3005 3008 //2025
 {
     int totalPlayer, searchJerseyNo, foundIndex = -1;
     char *searchPlayerName;
